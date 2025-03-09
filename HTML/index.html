@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .hero-section {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        .leftSide {
+            width: 50%;
+            /* Left side left empty for future content */
+        }
+        .rightSide {
+            width: 50%;
+            position: relative;
+            padding: 20px;
+            text-align: center;
+        }
+        .image-container {
+            width: 500px;
+            height: 500px;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+            max-width: 450px;
+            margin: 0 auto 30px;
+            line-height: 1.5;
+        }
+        .content-slide {
+            display: none;
+        }
+        .content-slide.active {
+            display: block;
+        }
+        .navigation-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-100%);
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #333;
+            padding: 10px;
+            z-index: 10;
+        }
+        .prev {
+            left: 0;
+        }
+        .next {
+            right: 0;
+        }
+        .indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+        .indicator.active {
+            background-color: #4285f4;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <div class="leftSide">
+            <!-- Left side empty for future content -->
+        </div>
+        <div class="rightSide">
+            <button class="navigation-arrow prev" onclick="previousSlide()">&lt;</button>
+            <button class="navigation-arrow next" onclick="nextSlide()">&gt;</button>
+
+            <div id="slide1" class="content-slide active">
+                <div class="image-container">
+                    <img src="../Assets/IMG - 1.png" alt="Security illustration">
+                </div>
+                <h2>Your meeting is safe</h2>
+                <p>No one can join a meeting unless invited or admitted by the host</p>
+            </div>
+
+            <div id="slide2" class="content-slide">
+                <div class="image-container">
+                    <img src="../Assets/IMG - 2.png" alt="Communication illustration">
+                </div>
+                <h2>Easy communication</h2>
+                <p>Connect with your team from anywhere in the world with just one click</p>
+            </div>
+
+            <div id="slide3" class="content-slide">
+                <div class="image-container">
+                    <img src="../Assets/IMG - 3.png" alt="Collaboration illustration">
+                </div>
+                <h2>Work together</h2>
+                <p>Share your screen, collaborate on documents, and brainstorm with your team in real-time</p>
+            </div>
+
+            <div id="slide4" class="content-slide">
+                <div class="image-container">
+                    <img src="../Assets/IMG - 4.png" alt="Recording illustration">
+                </div>
+                <h2>Never miss a detail</h2>
+                <p>Record your meetings and access them later to review important information</p>
+            </div>
+
+            <div class="indicators">
+                <div class="indicator active" onclick="goToSlide(0)"></div>
+                <div class="indicator" onclick="goToSlide(1)"></div>
+                <div class="indicator" onclick="goToSlide(2)"></div>
+                <div class="indicator" onclick="goToSlide(3)"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll(".content-slide");
+        const indicators = document.querySelectorAll(".indicator");
+        
+        function updateSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove("active"));
+            // Show the current slide
+            slides[index].classList.add("active");
+            
+            // Update indicators
+            indicators.forEach(indicator => indicator.classList.remove("active"));
+            indicators[index].classList.add("active");
+        }
+        
+        function previousSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+            updateSlide(currentSlideIndex);
+        }
+        
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            updateSlide(currentSlideIndex);
+        }
+        
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            updateSlide(currentSlideIndex);
+        }
+    </script>
+</body>
+</html>
