@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Gabarito:wght@400..900&family=Pacifico&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 /* Reset CSS */
 * {
     margin: 0;
@@ -10,11 +10,11 @@
 
 body {
     background-image: url(../Assets/BI\ -\ 1.jpeg);
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-attachment: fixed;
     position: relative;
-    padding-top: 70px; /* Add space for fixed navbar */
+    padding-top: 70px; 
 }
 
 /* Add overlay for background transparency */
@@ -25,7 +25,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.7); /* White with 70% opacity */
+    background-color: rgba(255, 255, 255, 0.8); /* White with 70% opacity */
     z-index: -1;
 }
 
@@ -37,15 +37,15 @@ body::before {
     right: 0;
     z-index: 50;
     transition: all 0.3s ease-in-out;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(248, 248, 248, 1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .main-nav.scrolled {
     margin-top: 16px;
     margin-left: 16px;
     margin-right: 16px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(248, 248, 248, 0.6);
     backdrop-filter: blur(4px);
     border-radius: 16px;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -61,9 +61,8 @@ body::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    height: 80px;
 }
-
 .logo-link {
     display: flex;
     align-items: center;
@@ -77,19 +76,15 @@ body::before {
 }
 
 .logo-image {
-    height: 24px;
+    height: 60px;
     width: auto;
     margin-right: 6px;
 }
 
 .brand-first {
+    font-family: pacifico;
     color: #3a8e3f;
-    font-size: 22px;
-}
-
-.brand-second {
-    color: #f7b731;
-    font-size: 22px;
+    font-size: 2rem;
 }
 
 .desktop-nav {
@@ -138,10 +133,10 @@ body::before {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: linear-gradient(to right, #3a8e3f, #f7b731);
+    background-color: #3a8e3f;
     color: white;
     padding: 8px 20px;
-    border-radius: 6px;
+    border-radius: 20px;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.3s;
@@ -210,13 +205,16 @@ body::before {
     opacity: 0;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
-    border-top: 0 solid rgba(229, 231, 235, 1);
+    visibility: hidden;
+    display: none;
 }
 
 .mobile-menu.open {
     max-height: 500px;
     opacity: 1;
     border-top-width: 1px;
+    visibility: visible;
+    display: block;
 }
 
 .mobile-menu-items {
@@ -256,12 +254,13 @@ body::before {
 /* Main content styling */
 .Mtext {
     font-size: 60px;
-    margin-top: 100px; /* Adjusted for navbar */
+    margin-top: 100px;
     padding: 5px 0px;
     text-align: center;
     opacity: 0;
     transform: translateY(-100%);
     animation: slideDown 2s ease forwards;
+    margin-bottom: 20px;
 }
 
 @keyframes slideDown {
@@ -291,7 +290,7 @@ body::before {
 }
 
 .Mbutton {
-    margin-top: 40px;
+    margin-top: 10px;
     text-align: center;
     opacity: 0;
     transform: translateY(-100%);
@@ -304,11 +303,11 @@ body::before {
 }
 
 .Stext1 {
-    margin-top: 80px;
+    margin-top: 40px;
     font-size: 25px;
     padding: 5px 0px;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     opacity: 0;
     transform: translateY(-100%);
     animation: slideDown 1s ease forwards;
@@ -341,27 +340,77 @@ body::before {
 /* Hero Section Styles */
 .hero-section {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     margin: 50px 0;
     padding: 0 50px;
+    gap: 30px;
 }
 
 .leftSide {
-    width: 45%;
+    width: 50%;
+    padding: 0 15px;
+}
+
+.feature-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    max-width: 100%;
+}
+
+.feature-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.feature-icon {
+    flex: 0 0 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3a8e3f;
+    border-radius: 50%;
+    margin-right: 15px;
+    color: white;
+    font-size: 24px;
+}
+
+.feature-text {
+    flex: 1;
+}
+
+.feature-text h3 {
+    color: #333;
+    margin-bottom: 6px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.feature-text p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
 }
 
 .rightSide {
-    width: 55%;
+    width: 50%;
     position: relative;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
 }
 
 .image-container {
     max-width: 400px;
-    height: 300px;
-    margin: 0 auto 30px;
+    height: 250px;
+    margin: 0 auto 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -388,6 +437,7 @@ body::before {
 
 .content-slide {
     display: none;
+    padding: 0 15px;
 }
 
 .content-slide.active {
@@ -396,13 +446,13 @@ body::before {
 
 .navigation-arrow {
     position: absolute;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
-    font-size: 18px;
-    background-color: rgba(255, 255, 255, 0.7);
+    font-size: 24px;
+    background-color: transparent;
     border: none;
     border-radius: 50%;
-    width: 40px;
+    width: 300px;
     height: 40px;
     cursor: pointer;
     color: #333;
@@ -410,19 +460,22 @@ body::before {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    padding: 0;
 }
 
 .navigation-arrow:hover {
-    background-color: rgba(58, 142, 63, 0.2);
+    background-color: transparent;
+    color: #3a8e3f;
+    transform: translateY(-50%) scale(1.2);
 }
 
 .prev {
-    left: 10px;
+    left: -10px;
 }
 
 .next {
-    right: 10px;
+    right: -10px;
 }
 
 .indicators {
@@ -675,11 +728,18 @@ footer {
     .hero-section {
         flex-direction: column;
         padding: 0 20px;
+        gap: 10px;
     }
     
     .leftSide,
     .rightSide {
         width: 100%;
+    }
+    
+    .feature-box {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
     }
     
     .Mtext {
@@ -689,6 +749,7 @@ footer {
     
     .para {
         padding: 0 50px;
+        padding-top: 150px;
     }
     
     .footer-content {
@@ -705,6 +766,13 @@ footer {
     .footer-bottom {
         flex-direction: column;
         gap: 15px;
+    }
+    
+    .main-nav.scrolled {
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0;
     }
 }
 
@@ -739,10 +807,39 @@ footer {
     .navigation-arrow {
         width: 35px;
         height: 35px;
+        top: 35%;
+        font-size: 20px;
+    }
+    
+    .prev {
+        left: -5px;
+    }
+    
+    .next {
+        right: -5px;
     }
     
     .image-container {
         height: 250px;
+    }
+    
+    .feature-box {
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .feature-icon {
+        flex: 0 0 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+    
+    .feature-text h3 {
+        font-size: 18px;
+    }
+    
+    .feature-text p {
+        font-size: 14px;
     }
 }
 
@@ -754,6 +851,7 @@ footer {
     
     .Stext1, .Stext2 {
         font-size: 18px;
+        margin-bottom: 20px;
     }
     
     .highlight-green {
@@ -763,6 +861,7 @@ footer {
     .para {
         padding: 0 20px;
         font-size: 14px;
+        padding-top: 350px;
     }
     
     .rightSide h2 {
@@ -785,4 +884,49 @@ footer {
     .footer-bottom {
         padding: 15px 20px;
     }
+    
+    .feature-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px 10px;
+    }
+    
+    .feature-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+        flex: 0 0 40px;
+        height: 40px;
+    }
+    
+    .feature-text {
+        text-align: center;
+    }
+    
+    .feature-text h3 {
+        font-size: 16px;
+    }
+    
+    .feature-text p {
+        font-size: 13px;
+    }
+}
+
+/* Specific fix for extra small devices */
+@media screen and (max-width: 360px) {
+    .Mtext {
+        font-size: 20px;
+    }
+    
+    .feature-box {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    
+    .navigation-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+   
 }
