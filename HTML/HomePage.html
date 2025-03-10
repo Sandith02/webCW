@@ -178,7 +178,44 @@
         </div>
     </div>
     
+<div class="minimal-testimonial-section">
+    <h2 class="testimonial-title">Testimonials</h2>
+    <p class="testimonial-subtitle">Let's hear what our customers have to say</p>
     
+    <div class="testimonial-slider-container">
+        <div class="testimonial-slider">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-slide active">
+                <p class="testimonial-quote">"The organic vegetables from greenMart.lk have transformed our family meals. The freshness is unmatched, and knowing they're grown without harmful chemicals gives me peace of mind."</p>
+                <p class="testimonial-author">Samantha Perera, Colombo</p>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="testimonial-slide">
+                <p class="testimonial-quote">"I've been ordering Sri Lankan spices from greenMart.lk for my restaurant, and the quality is exceptional. My customers can taste the difference in every dish. Highly recommend!"</p>
+                <p class="testimonial-author">Ravi Mendis, Kandy</p>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="testimonial-slide">
+                <p class="testimonial-quote">"As someone who cares deeply about sustainability, I appreciate greenMart.lk's commitment to eco-friendly packaging and supporting local farmers. Their organic fruits are the freshest I've ever tasted!"</p>
+                <p class="testimonial-author">Niroshi Fernando, Galle</p>
+            </div>
+        </div>
+        
+        <div class="testimonial-avatars">
+            <div class="avatar-container active" onclick="showTestimonial(0)">
+                <img src="../Assets/Person 01.jpeg" alt="Customer" onerror="this.src='https://via.placeholder.com/60'">
+            </div>
+            <div class="avatar-container" onclick="showTestimonial(1)">
+                <img src="../Assets/Person 02.jpeg" alt="Customer" onerror="this.src='https://via.placeholder.com/60'">
+            </div>
+            <div class="avatar-container" onclick="showTestimonial(2)">
+                <img src="../Assets/Person 03.jpeg" alt="Customer" onerror="this.src='https://via.placeholder.com/60'">
+            </div>
+        </div>
+    </div>
+</div>
 
     <div class="Stext2"><b>Surf in to Following Content Pages</b></div>
     
@@ -272,6 +309,58 @@
     </footer> 
 
     <script>
+
+let currentTestimonialIndex = 0;
+const testimonialSlides = document.querySelectorAll(".testimonial-slide");
+const avatarContainers = document.querySelectorAll(".avatar-container");
+
+function showTestimonial(index) {
+    // Update current index
+    currentTestimonialIndex = index;
+    
+    // Hide all testimonials
+    testimonialSlides.forEach(slide => {
+        slide.classList.remove("active");
+    });
+    
+    // Show selected testimonial
+    testimonialSlides[index].classList.add("active");
+    
+    // Update avatar selection
+    avatarContainers.forEach(avatar => {
+        avatar.classList.remove("active");
+    });
+    
+    avatarContainers[index].classList.add("active");
+}
+
+// Auto rotate testimonials
+function rotateTestimonials() {
+    let nextIndex = (currentTestimonialIndex + 1) % testimonialSlides.length;
+    showTestimonial(nextIndex);
+}
+
+// Set interval for auto rotation (8 seconds)
+const testimonialInterval = setInterval(rotateTestimonials, 10000);
+
+// // Pause rotation when hovering over testimonial section
+// const testimonialSection = document.querySelector(".minimal-testimonial-section");
+// if (testimonialSection) {
+//     testimonialSection.addEventListener("mouseenter", () => {
+//         clearInterval(testimonialInterval);
+//     });
+    
+//     testimonialSection.addEventListener("mouseleave", () => {
+//         clearInterval(testimonialInterval);
+//         testimonialInterval = setInterval(rotateTestimonials, 8000);
+//     });
+// }
+
+// Initialize on page load
+document.addEventListener("DOMContentLoaded", function() {
+    showTestimonial(0);
+});
+
         let currentSlideIndex = 0;
         const slides = document.querySelectorAll(".content-slide");
         const indicators = document.querySelectorAll(".indicator");
