@@ -80,7 +80,7 @@ body::before {
 }
 
 .logo-image {
-    height: 60px;
+    height: 30px;
     width: auto;
 }
 
@@ -304,8 +304,8 @@ body::before {
 }
 
 .button:hover {
-    background-color: #f7b731;
-    color: #333;
+    background-color: #005e0d;
+    color: #ffffff;
 }
 
 .Stext1 {
@@ -1037,15 +1037,16 @@ footer {
 
 .testimonial-title {
     font-size: 36px;
-    color: #666;
-    font-weight: 500;
+    color: #000000;
+    font-weight: 800;
     margin-bottom: 15px;
     font-family: 'Poppins', serif;
 }
 
 .testimonial-subtitle {
     font-size: 18px;
-    color: #888;
+    font-weight: 300;
+    color: #030303;
     margin-bottom: 60px;
     font-family: 'Poppins', serif;
 }
@@ -1077,7 +1078,7 @@ footer {
 }
 
 .testimonial-quote {
-    font-size: 20px;
+    font-size: 25px;
     line-height: 1.6;
     color: #666;
     margin-bottom: 50px;
@@ -1090,7 +1091,7 @@ footer {
 
 .testimonial-author {
     font-size: 16px;
-    color: #3a8e3f;
+    color: #1d1d1d;
     font-weight: 500;
 }
 
@@ -1117,7 +1118,7 @@ footer {
 }
 
 .avatar-container.active {
-    border-color: #3a8e3f;
+    border-color: #0d3200;
     opacity: 1;
     transform: scale(1.1);
 }
